@@ -9,9 +9,22 @@ class Blockchain(object):
         pass
 
 
-    def new_transaction(self):
+    def new_transaction(self, sender, recipient, amount):
         # Adds a new transation to the list of transactions
-        pass
+        ""
+        :param sender: <str> Address of the Sender
+        :param recipient: <str> Address of the Recipient
+        :param amount: <int> Amount
+        :return: <int> The index of the block that will hold this transaction
+        ""
+
+        self.current_transactions.append({
+            'sender': sender,
+            'recipient': recipient,
+            'amount': amount
+        })
+
+        return self.last_block['index'] + 1
 
     @staticmethod
     def hash(block):
@@ -23,4 +36,3 @@ class Blockchain(object):
         # Returns the last block in the chain
         pass
 
-    
