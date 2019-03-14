@@ -111,7 +111,6 @@ blockchain = Blockchain()
 
 @app.route('/mine', methods = ['GET'])
 def mine():
-    return "Let's mine a new block baby"
 
     # We run the proof of work algorithm to get the next proof..
     last_block = blockchain.last_block
@@ -139,10 +138,10 @@ def mine():
     }
 
     return jsonify(response), 200
+    return "Let's mine a new block baby"
 
 @app.route('/transactions/new', methods = ['POST'])
 def new_trasaction():
-    return "Let's add a new transaction"
 
     values = request.get_json()
 
@@ -156,6 +155,7 @@ def new_trasaction():
 
     response = {'message': f'Transaction will be added to Block {index}'}
     return jsonify(response), 201
+    return "Let's add a new transaction"
 
 @app.route('/chain', methods = ['GET'])
 def full_chain():
